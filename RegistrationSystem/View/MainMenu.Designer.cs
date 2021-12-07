@@ -34,9 +34,9 @@ namespace RegistrationSystem
 			this.Add = new System.Windows.Forms.Button();
 			this.Edit = new System.Windows.Forms.Button();
 			this.Delete = new System.Windows.Forms.Button();
-			this.Search = new System.Windows.Forms.Button();
+			this.Find = new System.Windows.Forms.Button();
 			this.Save = new System.Windows.Forms.Button();
-			this.Review = new System.Windows.Forms.Button();
+			this.Open = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// listBox1
@@ -67,6 +67,7 @@ namespace RegistrationSystem
 			this.Add.TabIndex = 5;
 			this.Add.Text = "Добавить";
 			this.Add.UseVisualStyleBackColor = true;
+			this.Add.Click += new System.EventHandler(this.Add_Click);
 			// 
 			// Edit
 			// 
@@ -78,6 +79,7 @@ namespace RegistrationSystem
 			this.Edit.TabIndex = 6;
 			this.Edit.Text = "Редактировать";
 			this.Edit.UseVisualStyleBackColor = true;
+			this.Edit.Click += new System.EventHandler(this.Edit_Click);
 			// 
 			// Delete
 			// 
@@ -89,17 +91,19 @@ namespace RegistrationSystem
 			this.Delete.TabIndex = 7;
 			this.Delete.Text = "Удалить";
 			this.Delete.UseVisualStyleBackColor = true;
+			this.Delete.Click += new System.EventHandler(this.Delete_Click);
 			// 
-			// Search
+			// Find
 			// 
-			this.Search.Enabled = false;
-			this.Search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.Search.Location = new System.Drawing.Point(290, 112);
-			this.Search.Name = "Search";
-			this.Search.Size = new System.Drawing.Size(100, 23);
-			this.Search.TabIndex = 9;
-			this.Search.Text = "Поиск";
-			this.Search.UseVisualStyleBackColor = true;
+			this.Find.Enabled = false;
+			this.Find.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.Find.Location = new System.Drawing.Point(290, 112);
+			this.Find.Name = "Find";
+			this.Find.Size = new System.Drawing.Size(100, 23);
+			this.Find.TabIndex = 9;
+			this.Find.Text = "Поиск";
+			this.Find.UseVisualStyleBackColor = true;
+			this.Find.Click += new System.EventHandler(this.Find_Click);
 			// 
 			// Save
 			// 
@@ -111,25 +115,27 @@ namespace RegistrationSystem
 			this.Save.TabIndex = 10;
 			this.Save.Text = "Сохранить";
 			this.Save.UseVisualStyleBackColor = true;
+			this.Save.Click += new System.EventHandler(this.Save_Click);
 			// 
-			// Review
+			// Open
 			// 
-			this.Review.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.Review.Location = new System.Drawing.Point(12, 334);
-			this.Review.Name = "Review";
-			this.Review.Size = new System.Drawing.Size(84, 23);
-			this.Review.TabIndex = 11;
-			this.Review.Text = "Обзор";
-			this.Review.UseVisualStyleBackColor = true;
+			this.Open.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.Open.Location = new System.Drawing.Point(12, 334);
+			this.Open.Name = "Open";
+			this.Open.Size = new System.Drawing.Size(84, 23);
+			this.Open.TabIndex = 11;
+			this.Open.Text = "Обзор";
+			this.Open.UseVisualStyleBackColor = true;
+			this.Open.Click += new System.EventHandler(this.Open_Click);
 			// 
 			// MainMenu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(403, 369);
-			this.Controls.Add(this.Review);
+			this.Controls.Add(this.Open);
 			this.Controls.Add(this.Save);
-			this.Controls.Add(this.Search);
+			this.Controls.Add(this.Find);
 			this.Controls.Add(this.Delete);
 			this.Controls.Add(this.Edit);
 			this.Controls.Add(this.Add);
@@ -150,9 +156,9 @@ namespace RegistrationSystem
 		private System.Windows.Forms.Button Add;
 		private System.Windows.Forms.Button Edit;
 		private System.Windows.Forms.Button Delete;
-		private System.Windows.Forms.Button Search;
+		private System.Windows.Forms.Button Find;
 		private System.Windows.Forms.Button Save;
-		private System.Windows.Forms.Button Review;
+		private System.Windows.Forms.Button Open;
 	}
 }
 

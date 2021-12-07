@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RegistrationSystem.Controller;
+using RegistrationSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +16,12 @@ namespace RegistrationSystem
 		[STAThread]
 		static void Main()
 		{
+			ApplicationModel applicationModel = new ApplicationModel();
+			MainMenuController mainMenuController = new MainMenuController(applicationModel);
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			Application.Run(new MainMenu(mainMenuController));
 		}
 	}
 }

@@ -49,11 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Controller\IMainMenuController.cs" />
+    <Compile Include="Controller\MainMenuController.cs" />
+    <Compile Include="View\AddMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\AddMenu.Designer.cs">
+      <DependentUpon>AddMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AlertMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AlertMenu.Designer.cs">
+      <DependentUpon>AlertMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Data\User.cs" />
     <Compile Include="Model\ApplicationModel.cs" />
@@ -68,8 +82,17 @@
     <Compile Include="SaveSystem\Serialization\Format\XmlSerializationSystem.cs" />
     <Compile Include="SaveSystem\Serialization\ISerializationFileSystem.cs" />
     <Compile Include="SaveSystem\Serialization\TextSerializationSystem.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\SaveMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SaveMenu.Designer.cs">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\AlertMenu.resx">
+      <DependentUpon>AlertMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,6 +103,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\SaveMenu.resx">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -94,8 +120,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
