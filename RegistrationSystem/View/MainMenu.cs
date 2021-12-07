@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegistrationSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,15 @@ using System.Windows.Forms;
 
 namespace RegistrationSystem
 {
-	public partial class Form1 : Form
+	public partial class MainMenu : Form
 	{
-		public Form1()
+		private readonly IApplicationModel _applicationModel;
+
+		public MainMenu(IApplicationModel applicationModel)
 		{
 			InitializeComponent();
+
+			_applicationModel = applicationModel;
 		}
 	}
 }
