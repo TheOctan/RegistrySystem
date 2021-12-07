@@ -3,7 +3,7 @@
 namespace RegistrationSystem.Model.Data
 {
 	[Serializable]
-	public struct User
+	public class User
 	{
 		public string Surname;
 		public string Name;

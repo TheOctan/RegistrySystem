@@ -32,15 +32,15 @@ namespace RegistrationSystem.View
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.surnameTextBox = new System.Windows.Forms.TextBox();
+			this.nameTextBox = new System.Windows.Forms.TextBox();
+			this.patronymicTextBox = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.phoneTextBox = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
-			this.DateOfIssue = new System.Windows.Forms.DateTimePicker();
+			this.date = new System.Windows.Forms.DateTimePicker();
 			this.Cancel = new System.Windows.Forms.Button();
-			this.AddMedicament = new System.Windows.Forms.Button();
+			this.Add = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -70,26 +70,29 @@ namespace RegistrationSystem.View
 			this.label3.TabIndex = 2;
 			this.label3.Text = "Отчество";
 			// 
-			// textBox1
+			// surnameTextBox
 			// 
-			this.textBox1.Location = new System.Drawing.Point(72, 12);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(133, 20);
-			this.textBox1.TabIndex = 3;
+			this.surnameTextBox.Location = new System.Drawing.Point(72, 12);
+			this.surnameTextBox.Name = "surnameTextBox";
+			this.surnameTextBox.Size = new System.Drawing.Size(133, 20);
+			this.surnameTextBox.TabIndex = 3;
+			this.surnameTextBox.Click += new System.EventHandler(this.SurnameTextBox_Click);
 			// 
-			// textBox2
+			// nameTextBox
 			// 
-			this.textBox2.Location = new System.Drawing.Point(72, 38);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(133, 20);
-			this.textBox2.TabIndex = 4;
+			this.nameTextBox.Location = new System.Drawing.Point(72, 38);
+			this.nameTextBox.Name = "nameTextBox";
+			this.nameTextBox.Size = new System.Drawing.Size(133, 20);
+			this.nameTextBox.TabIndex = 4;
+			this.nameTextBox.Click += new System.EventHandler(this.NameTextBox_Click);
 			// 
-			// textBox3
+			// patronymicTextBox
 			// 
-			this.textBox3.Location = new System.Drawing.Point(72, 64);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(133, 20);
-			this.textBox3.TabIndex = 5;
+			this.patronymicTextBox.Location = new System.Drawing.Point(72, 64);
+			this.patronymicTextBox.Name = "patronymicTextBox";
+			this.patronymicTextBox.Size = new System.Drawing.Size(133, 20);
+			this.patronymicTextBox.TabIndex = 5;
+			this.patronymicTextBox.Click += new System.EventHandler(this.PatronymicTextBox_Click);
 			// 
 			// label4
 			// 
@@ -100,12 +103,13 @@ namespace RegistrationSystem.View
 			this.label4.TabIndex = 6;
 			this.label4.Text = "Телефон";
 			// 
-			// textBox4
+			// phoneTextBox
 			// 
-			this.textBox4.Location = new System.Drawing.Point(72, 90);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(133, 20);
-			this.textBox4.TabIndex = 7;
+			this.phoneTextBox.Location = new System.Drawing.Point(72, 90);
+			this.phoneTextBox.Name = "phoneTextBox";
+			this.phoneTextBox.Size = new System.Drawing.Size(133, 20);
+			this.phoneTextBox.TabIndex = 7;
+			this.phoneTextBox.Click += new System.EventHandler(this.PhoneTextBox_Click);
 			// 
 			// label5
 			// 
@@ -116,12 +120,12 @@ namespace RegistrationSystem.View
 			this.label5.TabIndex = 8;
 			this.label5.Text = "Дата";
 			// 
-			// DateOfIssue
+			// date
 			// 
-			this.DateOfIssue.Location = new System.Drawing.Point(72, 116);
-			this.DateOfIssue.Name = "DateOfIssue";
-			this.DateOfIssue.Size = new System.Drawing.Size(185, 20);
-			this.DateOfIssue.TabIndex = 15;
+			this.date.Location = new System.Drawing.Point(72, 116);
+			this.date.Name = "date";
+			this.date.Size = new System.Drawing.Size(185, 20);
+			this.date.TabIndex = 15;
 			// 
 			// Cancel
 			// 
@@ -132,16 +136,18 @@ namespace RegistrationSystem.View
 			this.Cancel.TabIndex = 19;
 			this.Cancel.Text = "Отмена";
 			this.Cancel.UseVisualStyleBackColor = true;
+			this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
 			// 
-			// AddMedicament
+			// Add
 			// 
-			this.AddMedicament.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.AddMedicament.Location = new System.Drawing.Point(78, 142);
-			this.AddMedicament.Name = "AddMedicament";
-			this.AddMedicament.Size = new System.Drawing.Size(100, 23);
-			this.AddMedicament.TabIndex = 18;
-			this.AddMedicament.Text = "Добавить";
-			this.AddMedicament.UseVisualStyleBackColor = true;
+			this.Add.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.Add.Location = new System.Drawing.Point(78, 142);
+			this.Add.Name = "Add";
+			this.Add.Size = new System.Drawing.Size(100, 23);
+			this.Add.TabIndex = 18;
+			this.Add.Text = "Добавить";
+			this.Add.UseVisualStyleBackColor = true;
+			this.Add.Click += new System.EventHandler(this.Add_Click);
 			// 
 			// AddMenu
 			// 
@@ -150,14 +156,14 @@ namespace RegistrationSystem.View
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(295, 173);
 			this.Controls.Add(this.Cancel);
-			this.Controls.Add(this.AddMedicament);
-			this.Controls.Add(this.DateOfIssue);
+			this.Controls.Add(this.Add);
+			this.Controls.Add(this.date);
 			this.Controls.Add(this.label5);
-			this.Controls.Add(this.textBox4);
+			this.Controls.Add(this.phoneTextBox);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.patronymicTextBox);
+			this.Controls.Add(this.nameTextBox);
+			this.Controls.Add(this.surnameTextBox);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -175,14 +181,14 @@ namespace RegistrationSystem.View
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox surnameTextBox;
+		private System.Windows.Forms.TextBox nameTextBox;
+		private System.Windows.Forms.TextBox patronymicTextBox;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox phoneTextBox;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.DateTimePicker DateOfIssue;
+		private System.Windows.Forms.DateTimePicker date;
 		private System.Windows.Forms.Button Cancel;
-		private System.Windows.Forms.Button AddMedicament;
+		private System.Windows.Forms.Button Add;
 	}
 }
