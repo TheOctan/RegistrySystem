@@ -28,14 +28,14 @@ namespace RegistrationSystem.View
 			_applicationModel.OnUserDeleted += UserDeleted;
 		}
 
-		private void UserDeleted(object sender, UserEventArgs e)
-		{
-			throw new NotImplementedException();
-		}
-
 		private void UserAdded(object sender, UserEventArgs e)
 		{
-			throw new NotImplementedException();
+			UserList.Items.Add(e.User);
+		}
+
+		private void UserDeleted(object sender, UserEventArgs e)
+		{
+			
 		}
 
 		private void Add_Click(object sender, EventArgs e)
@@ -54,6 +54,11 @@ namespace RegistrationSystem.View
 		}
 
 		private void Save_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void UserList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}

@@ -29,7 +29,7 @@ namespace RegistrationSystem.View
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.UserList = new System.Windows.Forms.ListBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.Add = new System.Windows.Forms.Button();
 			this.Delete = new System.Windows.Forms.Button();
@@ -37,15 +37,16 @@ namespace RegistrationSystem.View
 			this.Open = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// listBox1
+			// UserList
 			// 
-			this.listBox1.FormattingEnabled = true;
-			this.listBox1.Items.AddRange(new object[] {
+			this.UserList.FormattingEnabled = true;
+			this.UserList.Items.AddRange(new object[] {
             "Пусто"});
-			this.listBox1.Location = new System.Drawing.Point(12, 25);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(272, 303);
-			this.listBox1.TabIndex = 0;
+			this.UserList.Location = new System.Drawing.Point(12, 25);
+			this.UserList.Name = "UserList";
+			this.UserList.Size = new System.Drawing.Size(272, 303);
+			this.UserList.TabIndex = 0;
+			this.UserList.SelectedIndexChanged += new System.EventHandler(this.UserList_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -102,7 +103,7 @@ namespace RegistrationSystem.View
 			this.Open.UseVisualStyleBackColor = true;
 			this.Open.Click += new System.EventHandler(this.Open_Click);
 			// 
-			// MainMenu
+			// MainMenuView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,9 +113,9 @@ namespace RegistrationSystem.View
 			this.Controls.Add(this.Delete);
 			this.Controls.Add(this.Add);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.listBox1);
+			this.Controls.Add(this.UserList);
 			this.MaximizeBox = false;
-			this.Name = "MainMenu";
+			this.Name = "MainMenuView";
 			this.Text = "Registry System";
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -123,7 +124,7 @@ namespace RegistrationSystem.View
 
 		#endregion
 
-		private System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.ListBox UserList;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button Add;
 		private System.Windows.Forms.Button Delete;
