@@ -31,7 +31,7 @@ namespace RegistrationSystem.View
 		public void ShowSelectionMenu(string message, Action<bool> action)
 		{
 			var menu = new SelectionMenu(message);
-			menu.ShowDialog();
+			menu.ShowDialog(this);
 
 			action?.Invoke(menu.CancelAct);
 		}

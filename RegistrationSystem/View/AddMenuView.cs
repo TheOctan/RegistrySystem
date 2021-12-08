@@ -91,9 +91,10 @@ namespace RegistrationSystem.View
 
 				ShowAlert(ALERT_INVALID_PHONE_NUMBER);
 			}
-			if (date.Value <= DateTime.Now)
+			else if (date.Value.Date < DateTime.Today)
 			{
 				ShowAlert(ALERT_INVALID_DATE);
+				isValidInput = false;
 			}
 
 			return isValidInput;
@@ -119,7 +120,7 @@ namespace RegistrationSystem.View
 		private void ShowAlert(string message)
 		{
 			AlertMenu alert = new AlertMenu(message);
-			alert.Show(this);
+			alert.ShowDialog(this);
 		}
 
 		private void ResetView()
