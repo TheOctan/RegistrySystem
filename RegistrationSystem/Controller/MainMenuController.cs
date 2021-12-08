@@ -10,19 +10,24 @@ namespace RegistrationSystem.Controller
 {
 	public class MainMenuController : IMainMenuController
 	{
-		private IApplicationModel _applicationModel;
+		private readonly IApplicationModel _applicationModel;
+		private readonly IMainMenuView _mainMenuView;
+		private readonly IAddMenuView _addMenuView;
 
-		public MainMenuController(IApplicationModel applicationModel)
+		public MainMenuController(IApplicationModel applicationModel,
+			IMainMenuView mainMenuView,
+			IAddMenuView addMenuView)
 		{
 			_applicationModel = applicationModel;
+			_mainMenuView = mainMenuView;
+			_addMenuView = addMenuView;
+
+			_mainMenuView.OnAddButtonCliked += OnUserAdded;
 		}
 
-		public void AddUser()
+		private void OnUserAdded(object sender, EventArgs e)
 		{
-			var addMenu = new AddMenu(new AddMenuController(_applicationModel));
-			addMenu.ShowDialog();
-
-
+			_addMenuView.ShowDialog();
 		}
 	}
 }

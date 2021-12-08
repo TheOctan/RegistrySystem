@@ -1,7 +1,7 @@
 ﻿
 namespace RegistrationSystem.View
 {
-	partial class AddMenu
+	partial class AddMenuView
 	{
 		/// <summary>
 		/// Required designer variable.

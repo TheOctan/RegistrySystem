@@ -1,4 +1,5 @@
-﻿using RegistrationSystem.Controller;
+﻿using RegistrationSystem.Event;
+using RegistrationSystem.Model;
 using RegistrationSystem.Model.Data;
 using System;
 using System.Drawing;
@@ -6,25 +7,32 @@ using System.Windows.Forms;
 
 namespace RegistrationSystem.View
 {
-	public partial class AddMenu : Form
+	public partial class AddMenuView : Form, IAddMenuView
 	{
 		private const string ALERT_INVALID_PHONE_NUMBER = "Неверный формат номера\nтелефона в Беларуси";
 		private const string ALERT_INVALID_DATE = "Дата записи не может быть\nраньше сегодняшнего дня";
 
-		private IAddMenuController _addMenuController;
+		public event EventHandler<UserEventArgs> OnAddButtonClicked;
 
-		public AddMenu(IAddMenuController addMenuController)
+		private readonly IReadableApplicationModel _applicationModel;
+
+		public AddMenuView(IReadableApplicationModel applicationModel)
 		{
 			InitializeComponent();
 
-			_addMenuController = addMenuController;
+			_applicationModel = applicationModel;
 		}
 
 		private void Add_Click(object sender, EventArgs e)
 		{
-			if (ValidateUser(out var user))
+			User user = GetUser();
+
+			if (user != null)
 			{
-				_addMenuController.AddUser(user);
+				OnAddButtonClicked?.Invoke(this, new UserEventArgs()
+				{
+					User = user
+				});
 				Hide();
 			}
 		}
@@ -34,61 +42,57 @@ namespace RegistrationSystem.View
 			Hide();
 		}
 
-		private bool ValidateUser(out User user)
+		private bool IsValidInput()
 		{
-			var surname = surnameTextBox.Text;
-			var name = nameTextBox.Text;
-			var patronymic = patronymicTextBox.Text;
+			bool isValidInput = true;
 
-			var phone = phoneTextBox.Text;
-			var date = this.date.Value;
-
-			bool isValidUser = true;
-
-			if (surname.Length == 0)
+			if (surnameTextBox.Text.Length == 0)
 			{
 				surnameTextBox.BackColor = Color.Red;
-				isValidUser = false;
+				isValidInput = false;
 			}
-			if (name.Length == 0)
+			if (nameTextBox.Text.Length == 0)
 			{
 				nameTextBox.BackColor = Color.Red;
-				isValidUser = false;
+				isValidInput = false;
 			}
-			if (patronymic.Length == 0)
+			if (patronymicTextBox.Text.Length == 0)
 			{
 				patronymicTextBox.BackColor = Color.Red;
-				isValidUser = false;
+				isValidInput = false;
 			}
-			if (phone.Length == 0 || !_addMenuController.IsValidPhone(phone))
+
+			var phone = phoneTextBox.Text;
+			if (phone.Length == 0 || !_applicationModel.IsValidPhone(phone))
 			{
 				phoneTextBox.BackColor = Color.Red;
-				isValidUser = false;
+				isValidInput = false;
 
 				ShowAlert(ALERT_INVALID_PHONE_NUMBER);
 			}
-			if (date < DateTime.Now)
+			if (date.Value <= DateTime.Now)
 			{
 				ShowAlert(ALERT_INVALID_DATE);
 			}
 
-			if (isValidUser)
+			return isValidInput;
+		}
+
+		private User GetUser()
+		{
+			if (IsValidInput())
 			{
-				user = new User()
+				return new User()
 				{
-					Surname = surname,
-					Name = name,
-					Patronymic = patronymic,
-					Phone = phone,
-					date = date
+					Surname = surnameTextBox.Text,
+					Name = nameTextBox.Text,
+					Patronymic = patronymicTextBox.Text,
+					Phone = phoneTextBox.Text,
+					Date = date.Value
 				};
 			}
-			else
-			{
-				user = null;
-			}
 
-			return isValidUser;
+			return null;
 		}
 
 		private void ShowAlert(string message)

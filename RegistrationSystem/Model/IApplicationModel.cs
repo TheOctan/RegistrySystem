@@ -1,10 +1,12 @@
 ﻿using RegistrationSystem.Model.Data;
-using System.Collections.Generic;
 
 namespace RegistrationSystem.Model
 {
-	public interface IApplicationModel
+	public interface IApplicationModel : IReadableApplicationModel
 	{
-		List<User> Users { get; }
+		void AddUser(User user);
+		bool DeleteUser(User user);
+		bool HasUser(User user);
+		User GetUserByIndex(int index);
 	}
 }

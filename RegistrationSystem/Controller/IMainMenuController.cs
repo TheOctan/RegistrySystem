@@ -9,9 +9,5 @@ namespace RegistrationSystem.Controller
 {
 	public interface IMainMenuController
 	{
-		void AddUser();
-		//void DeleteUser();
-		//void EditUser(User user);
-		//User FindUser();
 	}
 }

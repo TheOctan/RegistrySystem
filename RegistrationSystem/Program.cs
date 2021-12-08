@@ -1,5 +1,6 @@
 ﻿using RegistrationSystem.Controller;
 using RegistrationSystem.Model;
+using RegistrationSystem.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,16 @@ namespace RegistrationSystem
 		[STAThread]
 		static void Main()
 		{
-			ApplicationModel applicationModel = new ApplicationModel();
-			MainMenuController mainMenuController = new MainMenuController(applicationModel);
-
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainMenu(mainMenuController));
+
+			var applicationModel = new ApplicationModel();
+			var mainMenuView = new MainMenuView(applicationModel);
+			var addMenu = new AddMenuView(applicationModel);
+
+			var addMenuController = new AddMenuController(applicationModel, addMenu);
+			var mainMenuController = new MainMenuController(applicationModel, mainMenuView, addMenu);
+			Application.Run(mainMenuView);
 		}
 	}
 }

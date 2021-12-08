@@ -49,13 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AddMenuController.cs" />
+    <Compile Include="Controller\IAddMenuController.cs" />
     <Compile Include="Controller\IMainMenuController.cs" />
     <Compile Include="Controller\MainMenuController.cs" />
-    <Compile Include="View\AddMenu.cs">
+    <Compile Include="Event\UserEventArgs.cs" />
+    <Compile Include="Model\IReadableApplicationModel.cs" />
+    <Compile Include="View\AddMenuView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AddMenu.Designer.cs">
-      <DependentUpon>AddMenu.cs</DependentUpon>
+    <Compile Include="View\AddMenuView.Designer.cs">
+      <DependentUpon>AddMenuView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AlertMenu.cs">
       <SubType>Form</SubType>
@@ -63,11 +67,14 @@
     <Compile Include="View\AlertMenu.Designer.cs">
       <DependentUpon>AlertMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MainMenu.cs">
+    <Compile Include="View\IAddMenuView.cs" />
+    <Compile Include="View\IDialogWindow.cs" />
+    <Compile Include="View\IMainMenuView.cs" />
+    <Compile Include="View\MainMenuView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <Compile Include="View\MainMenuView.Designer.cs">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Data\User.cs" />
     <Compile Include="Model\ApplicationModel.cs" />
@@ -88,11 +95,14 @@
     <Compile Include="View\SaveMenu.Designer.cs">
       <DependentUpon>SaveMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AddMenuView.resx">
+      <DependentUpon>AddMenuView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AlertMenu.resx">
       <DependentUpon>AlertMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainMenuView.resx">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

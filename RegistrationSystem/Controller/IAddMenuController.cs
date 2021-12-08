@@ -9,9 +9,6 @@ namespace RegistrationSystem.Controller
 {
 	public interface IAddMenuController
 	{
-		event EventHandler<User> UserAdded;
-
-		void AddUser(User user);
-		bool IsValidPhone(string phone);
+		
 	}
 }

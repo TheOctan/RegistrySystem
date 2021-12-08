@@ -1,5 +1,7 @@
-﻿using RegistrationSystem.Model;
+﻿using RegistrationSystem.Event;
+using RegistrationSystem.Model;
 using RegistrationSystem.Model.Data;
+using RegistrationSystem.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,25 +13,20 @@ namespace RegistrationSystem.Controller
 {
 	public class AddMenuController : IAddMenuController
 	{
-		private const string PHONE_NUMBER_PATTERN = @"^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$";
+		private readonly IApplicationModel _applicationModel;
+		private readonly IAddMenuView _addMenuView;
 
-		public event EventHandler<User> UserAdded;
-		private IApplicationModel _applicationModel;
-
-		public AddMenuController(IApplicationModel applicationModel)
+		public AddMenuController(IApplicationModel applicationModel, IAddMenuView addMenuView)
 		{
 			_applicationModel = applicationModel;
+			_addMenuView = addMenuView;
+
+			_addMenuView.OnAddButtonClicked += OnUserAdded;
 		}
 
-		public void AddUser(User user)
+		private void OnUserAdded(object sender, UserEventArgs e)
 		{
-			_applicationModel.Users.Add(user);
-			UserAdded?.Invoke(this, user);
-		}
-
-		public bool IsValidPhone(string phone)
-		{
-			return Regex.IsMatch(phone, PHONE_NUMBER_PATTERN);
+			_applicationModel.AddUser(e.User);
 		}
 	}
 }
