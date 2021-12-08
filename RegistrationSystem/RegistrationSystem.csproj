@@ -55,6 +55,12 @@
     <Compile Include="Controller\MainMenuController.cs" />
     <Compile Include="Event\UserEventArgs.cs" />
     <Compile Include="Model\IReadableApplicationModel.cs" />
+    <Compile Include="View\SelectionMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SelectionMenu.Designer.cs">
+      <DependentUpon>SelectionMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AddMenuView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="View\SaveMenu.Designer.cs">
       <DependentUpon>SaveMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\SelectionMenu.resx">
+      <DependentUpon>SelectionMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AddMenuView.resx">
       <DependentUpon>AddMenuView.cs</DependentUpon>
     </EmbeddedResource>

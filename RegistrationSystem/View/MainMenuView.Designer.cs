@@ -31,8 +31,8 @@ namespace RegistrationSystem.View
 		{
 			this.UserList = new System.Windows.Forms.ListBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.Add = new System.Windows.Forms.Button();
-			this.Delete = new System.Windows.Forms.Button();
+			this.AddButton = new System.Windows.Forms.Button();
+			this.DeleteButton = new System.Windows.Forms.Button();
 			this.Save = new System.Windows.Forms.Button();
 			this.Open = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -40,8 +40,6 @@ namespace RegistrationSystem.View
 			// UserList
 			// 
 			this.UserList.FormattingEnabled = true;
-			this.UserList.Items.AddRange(new object[] {
-            "Пусто"});
 			this.UserList.Location = new System.Drawing.Point(12, 25);
 			this.UserList.Name = "UserList";
 			this.UserList.Size = new System.Drawing.Size(272, 303);
@@ -57,28 +55,28 @@ namespace RegistrationSystem.View
 			this.label1.TabIndex = 1;
 			this.label1.Text = "Записи";
 			// 
-			// Add
+			// AddButton
 			// 
-			this.Add.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.Add.Location = new System.Drawing.Point(290, 25);
-			this.Add.Name = "Add";
-			this.Add.Size = new System.Drawing.Size(100, 23);
-			this.Add.TabIndex = 5;
-			this.Add.Text = "Добавить";
-			this.Add.UseVisualStyleBackColor = true;
-			this.Add.Click += new System.EventHandler(this.Add_Click);
+			this.AddButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.AddButton.Location = new System.Drawing.Point(290, 25);
+			this.AddButton.Name = "AddButton";
+			this.AddButton.Size = new System.Drawing.Size(100, 23);
+			this.AddButton.TabIndex = 5;
+			this.AddButton.Text = "Добавить";
+			this.AddButton.UseVisualStyleBackColor = true;
+			this.AddButton.Click += new System.EventHandler(this.Add_Click);
 			// 
-			// Delete
+			// DeleteButton
 			// 
-			this.Delete.Enabled = false;
-			this.Delete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.Delete.Location = new System.Drawing.Point(290, 54);
-			this.Delete.Name = "Delete";
-			this.Delete.Size = new System.Drawing.Size(100, 23);
-			this.Delete.TabIndex = 7;
-			this.Delete.Text = "Удалить";
-			this.Delete.UseVisualStyleBackColor = true;
-			this.Delete.Click += new System.EventHandler(this.Delete_Click);
+			this.DeleteButton.Enabled = false;
+			this.DeleteButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.DeleteButton.Location = new System.Drawing.Point(290, 54);
+			this.DeleteButton.Name = "DeleteButton";
+			this.DeleteButton.Size = new System.Drawing.Size(100, 23);
+			this.DeleteButton.TabIndex = 7;
+			this.DeleteButton.Text = "Удалить";
+			this.DeleteButton.UseVisualStyleBackColor = true;
+			this.DeleteButton.Click += new System.EventHandler(this.Delete_Click);
 			// 
 			// Save
 			// 
@@ -110,8 +108,8 @@ namespace RegistrationSystem.View
 			this.ClientSize = new System.Drawing.Size(403, 369);
 			this.Controls.Add(this.Open);
 			this.Controls.Add(this.Save);
-			this.Controls.Add(this.Delete);
-			this.Controls.Add(this.Add);
+			this.Controls.Add(this.DeleteButton);
+			this.Controls.Add(this.AddButton);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.UserList);
 			this.MaximizeBox = false;
@@ -126,8 +124,8 @@ namespace RegistrationSystem.View
 
 		private System.Windows.Forms.ListBox UserList;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button Add;
-		private System.Windows.Forms.Button Delete;
+		private System.Windows.Forms.Button AddButton;
+		private System.Windows.Forms.Button DeleteButton;
 		private System.Windows.Forms.Button Save;
 		private System.Windows.Forms.Button Open;
 	}

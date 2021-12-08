@@ -29,6 +29,25 @@ namespace RegistrationSystem.Model
 			});
 		}
 
+		public bool DeleteUser(int index)
+		{
+			if (IsValidRange(index))
+			{
+				var user = users[index];
+				users.RemoveAt(index);
+
+				OnUserDeleted?.Invoke(this, new UserEventArgs()
+				{
+					User = user,
+					Index = index
+				});
+
+				return true;
+			}
+
+			return false;
+		}
+
 		public bool DeleteUser(User user)
 		{
 			if (HasUser(user))
@@ -52,14 +71,12 @@ namespace RegistrationSystem.Model
 
 		public User GetUserByIndex(int index)
 		{
-			if (index > 0 && index <= LastIndex)
+			if (IsValidRange(index))
 			{
 				return users[index];
 			}
-			else
-			{
-				return null;
-			}
+
+			return null;
 		}
 
 		public bool HasUser(User user)
@@ -70,6 +87,11 @@ namespace RegistrationSystem.Model
 		public bool IsValidPhone(string phone)
 		{
 			return Regex.IsMatch(phone, PHONE_NUMBER_PATTERN);
+		}
+
+		private bool IsValidRange(int index)
+		{
+			return index >= 0 && index <= LastIndex;
 		}
 	}
 }

@@ -10,6 +10,8 @@ namespace RegistrationSystem.Controller
 {
 	public class MainMenuController : IMainMenuController
 	{
+		private const string DELETE_USER_ALERT = "Вы уверены,\nчто хотиту удалить запись?";
+
 		private readonly IApplicationModel _applicationModel;
 		private readonly IMainMenuView _mainMenuView;
 		private readonly IAddMenuView _addMenuView;
@@ -23,11 +25,23 @@ namespace RegistrationSystem.Controller
 			_addMenuView = addMenuView;
 
 			_mainMenuView.OnAddButtonCliked += OnUserAdded;
+			_mainMenuView.OnDeleteButtonClicked += OnUserDeleted;
 		}
 
 		private void OnUserAdded(object sender, EventArgs e)
 		{
 			_addMenuView.ShowDialog();
+		}
+
+		private void OnUserDeleted(object sender, int index)
+		{
+			_mainMenuView.ShowSelectionMenu(DELETE_USER_ALERT, (cancel) =>
+			{
+				if (!cancel)
+				{
+					_applicationModel.DeleteUser(index);
+				}
+			});
 		}
 	}
 }

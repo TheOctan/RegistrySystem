@@ -9,6 +9,8 @@ namespace RegistrationSystem.View
 	public interface IMainMenuView : IDialogWindow
 	{
 		event EventHandler OnAddButtonCliked;
-		event EventHandler OnDeleteButtonClicked;
+		event EventHandler<int> OnDeleteButtonClicked;
+
+		void ShowSelectionMenu(string message, Action<bool> action);
 	}
 }

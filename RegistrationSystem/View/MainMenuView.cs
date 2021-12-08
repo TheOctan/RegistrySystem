@@ -15,7 +15,7 @@ namespace RegistrationSystem.View
 	public partial class MainMenuView : Form, IMainMenuView
 	{
 		public event EventHandler OnAddButtonCliked;
-		public event EventHandler OnDeleteButtonClicked;
+		public event EventHandler<int> OnDeleteButtonClicked;
 
 		private readonly IReadableApplicationModel _applicationModel;
 
@@ -28,14 +28,23 @@ namespace RegistrationSystem.View
 			_applicationModel.OnUserDeleted += UserDeleted;
 		}
 
+		public void ShowSelectionMenu(string message, Action<bool> action)
+		{
+			var menu = new SelectionMenu(message);
+			menu.ShowDialog();
+
+			action?.Invoke(menu.CancelAct);
+		}
+
 		private void UserAdded(object sender, UserEventArgs e)
 		{
 			UserList.Items.Add(e.User);
+			DeleteButton.Enabled = true;
 		}
 
 		private void UserDeleted(object sender, UserEventArgs e)
 		{
-			
+			UserList.Items.RemoveAt(e.Index);
 		}
 
 		private void Add_Click(object sender, EventArgs e)
@@ -45,7 +54,7 @@ namespace RegistrationSystem.View
 
 		private void Delete_Click(object sender, EventArgs e)
 		{
-			OnDeleteButtonClicked?.Invoke(this, EventArgs.Empty);
+			OnDeleteButtonClicked?.Invoke(this, UserList.SelectedIndex);
 		}
 
 		private void Open_Click(object sender, EventArgs e)
@@ -60,7 +69,7 @@ namespace RegistrationSystem.View
 
 		private void UserList_SelectedIndexChanged(object sender, EventArgs e)
 		{
-
+			DeleteButton.Enabled = true;
 		}
 	}
 }
