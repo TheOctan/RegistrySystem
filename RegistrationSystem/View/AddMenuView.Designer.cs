@@ -147,7 +147,7 @@ namespace RegistrationSystem.View
 			this.Add.TabIndex = 18;
 			this.Add.Text = "Добавить";
 			this.Add.UseVisualStyleBackColor = true;
-			this.Add.Click += new System.EventHandler(this.Add_Click);
+			this.Add.Click += new System.EventHandler(this.AddButton_Click);
 			// 
 			// AddMenu
 			// 

@@ -19,11 +19,12 @@ namespace RegistrationSystem.View
 		public AddMenuView(IReadableApplicationModel applicationModel)
 		{
 			InitializeComponent();
+			ResetView();
 
 			_applicationModel = applicationModel;
 		}
 
-		private void Add_Click(object sender, EventArgs e)
+		private void AddButton_Click(object sender, EventArgs e)
 		{
 			User user = GetUser();
 
@@ -40,6 +41,26 @@ namespace RegistrationSystem.View
 		private void Cancel_Click(object sender, EventArgs e)
 		{
 			Hide();
+		}
+
+		private void SurnameTextBox_Click(object sender, EventArgs e)
+		{
+			(sender as TextBox).BackColor = Color.White;
+		}
+
+		private void NameTextBox_Click(object sender, EventArgs e)
+		{
+			(sender as TextBox).BackColor = Color.White;
+		}
+
+		private void PatronymicTextBox_Click(object sender, EventArgs e)
+		{
+			(sender as TextBox).BackColor = Color.White;
+		}
+
+		private void PhoneTextBox_Click(object sender, EventArgs e)
+		{
+			(sender as TextBox).BackColor = Color.White;
 		}
 
 		private bool IsValidInput()
@@ -101,24 +122,12 @@ namespace RegistrationSystem.View
 			alert.Show(this);
 		}
 
-		private void SurnameTextBox_Click(object sender, EventArgs e)
+		private void ResetView()
 		{
-			(sender as TextBox).BackColor = Color.White;
-		}
-
-		private void NameTextBox_Click(object sender, EventArgs e)
-		{
-			(sender as TextBox).BackColor = Color.White;
-		}
-
-		private void PatronymicTextBox_Click(object sender, EventArgs e)
-		{
-			(sender as TextBox).BackColor = Color.White;
-		}
-
-		private void PhoneTextBox_Click(object sender, EventArgs e)
-		{
-			(sender as TextBox).BackColor = Color.White;
+			surnameTextBox.Text = string.Empty;
+			nameTextBox.Text = string.Empty;
+			patronymicTextBox.Text = string.Empty;
+			phoneTextBox.Text = string.Empty;
 		}
 	}
 }
