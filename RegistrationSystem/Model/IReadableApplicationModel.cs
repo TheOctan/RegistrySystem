@@ -9,9 +9,9 @@ namespace RegistrationSystem.Model
 	{
 		event EventHandler<UserEventArgs> OnUserAdded;
 		event EventHandler<UserEventArgs> OnUserDeleted;
-		event EventHandler OnUsersEdited;
-		event EventHandler OnUsersOpened;
+		event EventHandler<IEnumerable<User>> OnUsersOpened;
 		event EventHandler OnUsersSaved;
+		event EventHandler OnUsersEdited;
 
 		IEnumerable<User> Users { get; }
 		string LastSavePath { get; }

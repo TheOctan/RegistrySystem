@@ -14,12 +14,12 @@ namespace RegistrationSystem.Model
 
 		public event EventHandler<UserEventArgs> OnUserAdded;
 		public event EventHandler<UserEventArgs> OnUserDeleted;
-		public event EventHandler OnUsersEdited;
-		public event EventHandler OnUsersOpened;
+		public event EventHandler<IEnumerable<User>> OnUsersOpened;
 		public event EventHandler OnUsersSaved;
+		public event EventHandler OnUsersEdited;
 
 		public IEnumerable<User> Users => users;
-		public bool UsersMustSave => DataEdited || LastSavePath == string.Empty || !File.Exists(LastSavePath);
+		public bool UsersMustSave => DataEdited || (!string.IsNullOrEmpty(LastSavePath) && !File.Exists(LastSavePath));
 		public string LastSavePath { get; private set; }
 		public bool DataEdited { get; private set; }
 		private int LastIndex => users.Count - 1;
@@ -141,7 +141,7 @@ namespace RegistrationSystem.Model
 			{
 				users = _serializationFileSystem.DeserializeObject<List<User>>(path);
 				DataEdited = false;
-				OnUsersOpened?.Invoke(this, EventArgs.Empty);
+				OnUsersOpened?.Invoke(this, users);
 			}
 			catch (InvalidCastException e)
 			{

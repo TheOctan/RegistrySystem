@@ -1,6 +1,7 @@
 ﻿using RegistrationSystem.Controller;
 using RegistrationSystem.Event;
 using RegistrationSystem.Model;
+using RegistrationSystem.Model.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,8 @@ namespace RegistrationSystem.View
 			_applicationModel.OnUserAdded += UserAdded;
 			_applicationModel.OnUserDeleted += UserDeleted;
 			_applicationModel.OnUsersEdited += OnUsersEdited;
+			_applicationModel.OnUsersSaved += OnUserSaved;
+			_applicationModel.OnUsersOpened += OnUsersOpened;
 		}
 
 		public void ShowSelectionMenu(string message, Action<bool> action)
@@ -82,9 +85,30 @@ namespace RegistrationSystem.View
 			SaveButton.Enabled = true;
 		}
 
+		private void OnUserSaved(object sender, EventArgs e)
+		{
+			SaveButton.Enabled = false;
+		}
+
+		private void OnUsersOpened(object sender, IEnumerable<User> users)
+		{
+			UpdateUsers(users);
+			SaveButton.Enabled = false;
+		}
+
+		private void UpdateUsers(IEnumerable<User> users)
+		{
+			UserList.Items.Clear();
+			foreach (var user in users)
+			{
+				UserList.Items.Add(user);
+			}
+		}
+
 		private void Open_Click(object sender, EventArgs e)
 		{
 			TrySaveUsers();
+			openFileDialog1.ShowDialog();
 		}
 
 		private void MainMenuView_FormClosing(object sender, FormClosingEventArgs e)
@@ -108,8 +132,6 @@ namespace RegistrationSystem.View
 					saveFileDialog1.ShowDialog();
 				}
 			}
-
-			openFileDialog1.ShowDialog();
 		}
 
 		private void Save_Click(object sender, EventArgs e)
