@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RegistrationSystem.SaveModule.Serialization
+﻿namespace RegistrationSystem.SaveModule.Serialization
 {
 	public interface ISerializationFileSystem
 	{
