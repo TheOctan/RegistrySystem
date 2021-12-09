@@ -1,13 +1,11 @@
 ﻿using System.IO;
 using System.Runtime.Serialization;
 
-namespace OctanGames.SaveModule.Serialization
+namespace RegistrationSystem.SaveModule.Serialization
 {
 	public abstract class FormatterSerializationSystem<T> : BaseSerializationFileSystem where T : IFormatter, new()
 	{
-		public override abstract string Extension { get; }
-
-		public FormatterSerializationSystem(string directoryName) : base(directoryName)
+		public FormatterSerializationSystem() : base()
 		{
 		}
 

@@ -87,7 +87,6 @@
     <Compile Include="Model\IApplicationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveSystem\SaveSystem.cs" />
     <Compile Include="SaveSystem\Serialization\BaseSerializationFileSystem.cs" />
     <Compile Include="SaveSystem\Serialization\FormatterSerializationSystem.cs" />
     <Compile Include="SaveSystem\Serialization\Format\BinarySerializationSystem.cs" />

@@ -1,12 +1,10 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace OctanGames.SaveModule.Serialization
+namespace RegistrationSystem.SaveModule.Serialization
 {
 	public abstract class TextSerializationSystem : BaseSerializationFileSystem
 	{
-		public override abstract string Extension { get; }
-
 		protected abstract string GetString<T>(T obj);
 		protected abstract T GetObject<T>(string line);
 

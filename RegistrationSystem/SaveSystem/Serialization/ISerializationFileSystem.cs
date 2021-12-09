@@ -1,11 +1,10 @@
-﻿namespace OctanGames.SaveModule.Serialization
+﻿using System;
+
+namespace RegistrationSystem.SaveModule.Serialization
 {
 	public interface ISerializationFileSystem
 	{
-		string Extension { get; }
-		string LastDirectoryName { get; set; }
-
-		bool SerializeObject<T>(T obj, string directory, string key);
-		T DeserializeObject<T>(string directory, string key);
+		bool SerializeObject<T>(T obj, string path);
+		T DeserializeObject<T>(string path);
 	}
 }

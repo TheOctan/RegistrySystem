@@ -1,12 +1,10 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 
-namespace OctanGames.SaveModule.Serialization.Format
+namespace RegistrationSystem.SaveModule.Serialization.Format
 {
 	public class XmlSerializationSystem : BaseSerializationFileSystem
 	{
-		public override string Extension => "xml";
-
 		protected override T HandleLoadObject<T>(Stream stream)
 		{
 			XmlSerializer serializer = new XmlSerializer(typeof(T));

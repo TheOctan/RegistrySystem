@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace OctanGames.SaveModule.Serialization.Format
+namespace RegistrationSystem.SaveModule.Serialization.Format
 {
 	public class JsonSerializationSystem : TextSerializationSystem
 	{

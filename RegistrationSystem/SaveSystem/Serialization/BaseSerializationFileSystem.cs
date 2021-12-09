@@ -1,49 +1,39 @@
 ﻿using System.IO;
 
-namespace OctanGames.SaveModule.Serialization
+namespace RegistrationSystem.SaveModule.Serialization
 {
 	public abstract class BaseSerializationFileSystem : ISerializationFileSystem
 	{
-		public string LastDirectoryName { get; set; }
-		public abstract string Extension { get; }
-
 		public BaseSerializationFileSystem()
 		{
 		}
 
-		public virtual bool SerializeObject<T>(T obj, string directory, string key)
+		public virtual bool SerializeObject<T>(T obj, string path)
 		{
-			LastDirectoryName = directory;
+			var directory = Path.GetDirectoryName(path);
 
-			if (!Directory.Exists(LastDirectoryName))
+			if (!Directory.Exists(directory))
 			{
-				Directory.CreateDirectory(LastDirectoryName);
+				Directory.CreateDirectory(directory);
 			}
 
-			using (FileStream stream = new FileStream(SavePath(key), FileMode.Create))
+			using (FileStream stream = new FileStream(path, FileMode.Create))
 			{
 				return HandleSaveObject(stream, obj);
 			}
 		}
 
-		public virtual T DeserializeObject<T>(string directory, string key)
+		public virtual T DeserializeObject<T>(string path)
 		{
-			LastDirectoryName = directory;
-
-			if (!File.Exists(SavePath(key)))
+			if (!File.Exists(path))
 			{
 				return default;
 			}
 
-			using (FileStream stream = new FileStream(SavePath(key), FileMode.Open))
+			using (FileStream stream = new FileStream(path, FileMode.Open))
 			{
 				return HandleLoadObject<T>(stream);
 			}
-		}
-
-		private string SavePath(string key)
-		{
-			return $"{LastDirectoryName}{key}.{Extension}";
 		}
 
 		protected abstract bool HandleSaveObject<T>(Stream stream, T obj);
