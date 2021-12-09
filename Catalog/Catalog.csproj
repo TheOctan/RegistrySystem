@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{94E44811-05E5-434C-9CE4-E7A8CB0522F9}</ProjectGuid>
+    <ProjectGuid>{DA5C0E08-5881-4ECB-92A8-67826B10D1F9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>RegistrationSystem</RootNamespace>
-    <AssemblyName>RegistrationSystem</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>Catalog</RootNamespace>
+    <AssemblyName>Catalog</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,74 +46,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\AddMenuController.cs" />
-    <Compile Include="Controller\IAddMenuController.cs" />
-    <Compile Include="Controller\IMainMenuController.cs" />
-    <Compile Include="Controller\MainMenuController.cs" />
-    <Compile Include="Event\UserEventArgs.cs" />
-    <Compile Include="Model\IReadableApplicationModel.cs" />
-    <Compile Include="View\SelectionMenu.cs">
+    <Compile Include="AddMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\SelectionMenu.Designer.cs">
-      <DependentUpon>SelectionMenu.cs</DependentUpon>
+    <Compile Include="AddMenu.Designer.cs">
+      <DependentUpon>AddMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddMenuView.cs">
+    <Compile Include="AlertMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AddMenuView.Designer.cs">
-      <DependentUpon>AddMenuView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\AlertMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\AlertMenu.Designer.cs">
+    <Compile Include="AlertMenu.Designer.cs">
       <DependentUpon>AlertMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\IAddMenuView.cs" />
-    <Compile Include="View\IDialogWindow.cs" />
-    <Compile Include="View\IMainMenuView.cs" />
-    <Compile Include="View\MainMenuView.cs">
+    <Compile Include="SaveMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MainMenuView.Designer.cs">
-      <DependentUpon>MainMenuView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Data\User.cs" />
-    <Compile Include="Model\ApplicationModel.cs" />
-    <Compile Include="Model\IApplicationModel.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveSystem\Serialization\BaseSerializationFileSystem.cs" />
-    <Compile Include="SaveSystem\Serialization\FormatterSerializationSystem.cs" />
-    <Compile Include="SaveSystem\Serialization\Format\BinarySerializationSystem.cs" />
-    <Compile Include="SaveSystem\Serialization\Format\JsonSerializationSystem.cs" />
-    <Compile Include="SaveSystem\Serialization\Format\XmlSerializationSystem.cs" />
-    <Compile Include="SaveSystem\Serialization\ISerializationFileSystem.cs" />
-    <Compile Include="SaveSystem\Serialization\TextSerializationSystem.cs" />
-    <Compile Include="View\SaveMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\SaveMenu.Designer.cs">
+    <Compile Include="SaveMenu.Designer.cs">
       <DependentUpon>SaveMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserInfoMenu.cs">
+    <Compile Include="Data\DataBase.cs" />
+    <Compile Include="Data\Medicament.cs" />
+    <Compile Include="EditMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\UserInfoMenu.Designer.cs">
-      <DependentUpon>UserInfoMenu.cs</DependentUpon>
+    <Compile Include="EditMenu.Designer.cs">
+      <DependentUpon>EditMenu.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\SelectionMenu.resx">
+    <Compile Include="SearchMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchMenu.Designer.cs">
+      <DependentUpon>SearchMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectionMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectionMenu.Designer.cs">
       <DependentUpon>SelectionMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartMenu.Designer.cs">
+      <DependentUpon>StartMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddMenu.resx">
+      <DependentUpon>AddMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddMenuView.resx">
-      <DependentUpon>AddMenuView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\AlertMenu.resx">
+    <EmbeddedResource Include="AlertMenu.resx">
       <DependentUpon>AlertMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainMenuView.resx">
-      <DependentUpon>MainMenuView.cs</DependentUpon>
+    <EmbeddedResource Include="SaveMenu.resx">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMenu.resx">
+      <DependentUpon>EditMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchMenu.resx">
+      <DependentUpon>SearchMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectionMenu.resx">
+      <DependentUpon>SelectionMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartMenu.aa.resx">
+      <DependentUpon>StartMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartMenu.resx">
+      <DependentUpon>StartMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,13 +125,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\SaveMenu.resx">
-      <DependentUpon>SaveMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UserInfoMenu.resx">
-      <DependentUpon>UserInfoMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -147,6 +138,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

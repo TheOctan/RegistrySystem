@@ -158,5 +158,17 @@ namespace RegistrationSystem.View
 				OnSaveUsers?.Invoke(this, saveFileDialog1.FileName);
 			}
 		}
+
+		private void UserList_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			int index = UserList.SelectedIndex;
+			var user = _applicationModel.GetUserByIndex(index);
+
+			if (user != null)
+			{
+				var userInfoMenu = new UserInfoMenu(user);
+				userInfoMenu.ShowDialog(this);
+			}
+		}
 	}
 }

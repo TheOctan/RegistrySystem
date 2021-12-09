@@ -47,6 +47,7 @@ namespace RegistrationSystem.View
 			this.UserList.Size = new System.Drawing.Size(272, 303);
 			this.UserList.TabIndex = 0;
 			this.UserList.SelectedIndexChanged += new System.EventHandler(this.UserList_SelectedIndexChanged);
+			this.UserList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.UserList_MouseDoubleClick);
 			// 
 			// label1
 			// 
