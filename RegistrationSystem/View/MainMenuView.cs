@@ -61,7 +61,6 @@ namespace RegistrationSystem.View
 		private void UserAdded(object sender, UserEventArgs e)
 		{
 			UserList.Items.Add(e.User);
-			DeleteButton.Enabled = true;
 		}
 
 		private void UserDeleted(object sender, UserEventArgs e)
@@ -90,9 +89,9 @@ namespace RegistrationSystem.View
 			SaveButton.Enabled = false;
 		}
 
-		private void OnUsersOpened(object sender, IEnumerable<User> users)
+		private void OnUsersOpened(object sender, EventArgs e)
 		{
-			UpdateUsers(users);
+			UpdateUsers(_applicationModel.Users);
 			SaveButton.Enabled = false;
 		}
 

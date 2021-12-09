@@ -9,7 +9,7 @@ namespace RegistrationSystem.Model
 	{
 		event EventHandler<UserEventArgs> OnUserAdded;
 		event EventHandler<UserEventArgs> OnUserDeleted;
-		event EventHandler<IEnumerable<User>> OnUsersOpened;
+		event EventHandler OnUsersOpened;
 		event EventHandler OnUsersSaved;
 		event EventHandler OnUsersEdited;
 

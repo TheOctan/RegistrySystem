@@ -14,7 +14,7 @@ namespace RegistrationSystem.Model
 
 		public event EventHandler<UserEventArgs> OnUserAdded;
 		public event EventHandler<UserEventArgs> OnUserDeleted;
-		public event EventHandler<IEnumerable<User>> OnUsersOpened;
+		public event EventHandler OnUsersOpened;
 		public event EventHandler OnUsersSaved;
 		public event EventHandler OnUsersEdited;
 
@@ -141,7 +141,7 @@ namespace RegistrationSystem.Model
 			{
 				users = _serializationFileSystem.DeserializeObject<List<User>>(path);
 				DataEdited = false;
-				OnUsersOpened?.Invoke(this, users);
+				OnUsersOpened?.Invoke(this, EventArgs.Empty);
 			}
 			catch (InvalidCastException e)
 			{
