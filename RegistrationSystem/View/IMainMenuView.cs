@@ -10,7 +10,10 @@ namespace RegistrationSystem.View
 	{
 		event EventHandler OnAddButtonCliked;
 		event EventHandler<int> OnDeleteButtonClicked;
+		event EventHandler<string> OnLoadUsers;
+		event EventHandler<string> OnSaveUsers;
 
 		void ShowSelectionMenu(string message, Action<bool> action);
+		void ShowAlert(string message);
 	}
 }

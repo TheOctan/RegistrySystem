@@ -1,10 +1,8 @@
 ﻿using RegistrationSystem.Controller;
 using RegistrationSystem.Model;
+using RegistrationSystem.SaveModule.Serialization.Format;
 using RegistrationSystem.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RegistrationSystem
@@ -20,7 +18,8 @@ namespace RegistrationSystem
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			var applicationModel = new ApplicationModel();
+			var serializationSystem = new JsonSerializationSystem();
+			var applicationModel = new ApplicationModel(serializationSystem);
 			var mainMenuView = new MainMenuView(applicationModel);
 			var addMenu = new AddMenuView(applicationModel);
 

@@ -1,4 +1,5 @@
 ﻿using RegistrationSystem.Model.Data;
+using System;
 
 namespace RegistrationSystem.Model
 {
@@ -7,7 +8,8 @@ namespace RegistrationSystem.Model
 		void AddUser(User user);
 		bool DeleteUser(int index);
 		bool DeleteUser(User user);
-		bool HasUser(User user);
-		User GetUserByIndex(int index);
+
+		void SaveUsers(string path, Action<string> onError);
+		void LoadUsers(string path, Action<string> onError);
 	}
 }

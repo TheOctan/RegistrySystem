@@ -9,9 +9,17 @@ namespace RegistrationSystem.Model
 	{
 		event EventHandler<UserEventArgs> OnUserAdded;
 		event EventHandler<UserEventArgs> OnUserDeleted;
+		event EventHandler OnUsersEdited;
+		event EventHandler OnUsersOpened;
+		event EventHandler OnUsersSaved;
 
 		IEnumerable<User> Users { get; }
+		string LastSavePath { get; }
+		bool UsersMustSave { get; }
+		bool DataEdited { get; }
 
 		bool IsValidPhone(string phone);
+		bool HasUser(User user);
+		User GetUserByIndex(int index);
 	}
 }

@@ -26,6 +26,8 @@ namespace RegistrationSystem.Controller
 
 			_mainMenuView.OnAddButtonCliked += OnUserAdded;
 			_mainMenuView.OnDeleteButtonClicked += OnUserDeleted;
+			_mainMenuView.OnLoadUsers += OnLoadUsers;
+			_mainMenuView.OnSaveUsers += OnSaveUsers;
 		}
 
 		private void OnUserAdded(object sender, EventArgs e)
@@ -42,6 +44,15 @@ namespace RegistrationSystem.Controller
 					_applicationModel.DeleteUser(index);
 				}
 			});
+		}
+		private void OnLoadUsers(object sender, string path)
+		{
+			_applicationModel.LoadUsers(path, _mainMenuView.ShowAlert);
+		}
+
+		private void OnSaveUsers(object sender, string path)
+		{
+			_applicationModel.SaveUsers(path, _mainMenuView.ShowAlert);
 		}
 	}
 }

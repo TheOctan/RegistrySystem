@@ -33,8 +33,10 @@ namespace RegistrationSystem.View
 			this.label1 = new System.Windows.Forms.Label();
 			this.AddButton = new System.Windows.Forms.Button();
 			this.DeleteButton = new System.Windows.Forms.Button();
-			this.Save = new System.Windows.Forms.Button();
-			this.Open = new System.Windows.Forms.Button();
+			this.SaveButton = new System.Windows.Forms.Button();
+			this.OpenButton = new System.Windows.Forms.Button();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.SuspendLayout();
 			// 
 			// UserList
@@ -78,36 +80,46 @@ namespace RegistrationSystem.View
 			this.DeleteButton.UseVisualStyleBackColor = true;
 			this.DeleteButton.Click += new System.EventHandler(this.Delete_Click);
 			// 
-			// Save
+			// SaveButton
 			// 
-			this.Save.Enabled = false;
-			this.Save.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.Save.Location = new System.Drawing.Point(102, 334);
-			this.Save.Name = "Save";
-			this.Save.Size = new System.Drawing.Size(100, 23);
-			this.Save.TabIndex = 10;
-			this.Save.Text = "Сохранить";
-			this.Save.UseVisualStyleBackColor = true;
-			this.Save.Click += new System.EventHandler(this.Save_Click);
+			this.SaveButton.Enabled = false;
+			this.SaveButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.SaveButton.Location = new System.Drawing.Point(102, 334);
+			this.SaveButton.Name = "SaveButton";
+			this.SaveButton.Size = new System.Drawing.Size(100, 23);
+			this.SaveButton.TabIndex = 10;
+			this.SaveButton.Text = "Сохранить";
+			this.SaveButton.UseVisualStyleBackColor = true;
+			this.SaveButton.Click += new System.EventHandler(this.Save_Click);
 			// 
-			// Open
+			// OpenButton
 			// 
-			this.Open.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.Open.Location = new System.Drawing.Point(12, 334);
-			this.Open.Name = "Open";
-			this.Open.Size = new System.Drawing.Size(84, 23);
-			this.Open.TabIndex = 11;
-			this.Open.Text = "Обзор";
-			this.Open.UseVisualStyleBackColor = true;
-			this.Open.Click += new System.EventHandler(this.Open_Click);
+			this.OpenButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.OpenButton.Location = new System.Drawing.Point(12, 334);
+			this.OpenButton.Name = "OpenButton";
+			this.OpenButton.Size = new System.Drawing.Size(84, 23);
+			this.OpenButton.TabIndex = 11;
+			this.OpenButton.Text = "Обзор";
+			this.OpenButton.UseVisualStyleBackColor = true;
+			this.OpenButton.Click += new System.EventHandler(this.Open_Click);
+			// 
+			// saveFileDialog1
+			// 
+			this.saveFileDialog1.DefaultExt = "json";
+			this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog_FileOk);
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "openFileDialog1";
+			this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
 			// 
 			// MainMenuView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(403, 369);
-			this.Controls.Add(this.Open);
-			this.Controls.Add(this.Save);
+			this.Controls.Add(this.OpenButton);
+			this.Controls.Add(this.SaveButton);
 			this.Controls.Add(this.DeleteButton);
 			this.Controls.Add(this.AddButton);
 			this.Controls.Add(this.label1);
@@ -115,6 +127,7 @@ namespace RegistrationSystem.View
 			this.MaximizeBox = false;
 			this.Name = "MainMenuView";
 			this.Text = "Registry System";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenuView_FormClosing);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -126,8 +139,10 @@ namespace RegistrationSystem.View
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button AddButton;
 		private System.Windows.Forms.Button DeleteButton;
-		private System.Windows.Forms.Button Save;
-		private System.Windows.Forms.Button Open;
+		private System.Windows.Forms.Button SaveButton;
+		private System.Windows.Forms.Button OpenButton;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 	}
 }
 
