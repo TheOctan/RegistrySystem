@@ -19,7 +19,6 @@ namespace RegistrationSystem.View
 		private void Save_Click(object sender, EventArgs e)
 		{
 			IsSave = true;
-
 			Hide();
 		}
 

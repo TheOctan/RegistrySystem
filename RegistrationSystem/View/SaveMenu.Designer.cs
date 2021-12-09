@@ -42,6 +42,7 @@
 			this.Save.TabIndex = 0;
 			this.Save.Text = "Сохранить";
 			this.Save.UseVisualStyleBackColor = true;
+			this.Save.Click += new System.EventHandler(this.Save_Click);
 			// 
 			// NotSave
 			// 
@@ -51,6 +52,7 @@
 			this.NotSave.TabIndex = 1;
 			this.NotSave.Text = "Не сохранять";
 			this.NotSave.UseVisualStyleBackColor = true;
+			this.NotSave.Click += new System.EventHandler(this.NotSave_Click);
 			// 
 			// Cancel
 			// 
@@ -60,6 +62,7 @@
 			this.Cancel.TabIndex = 2;
 			this.Cancel.Text = "Отмена";
 			this.Cancel.UseVisualStyleBackColor = true;
+			this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
 			// 
 			// Message
 			// 
